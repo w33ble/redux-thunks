@@ -7,7 +7,8 @@
     "lint": "eslint *.js src/**/*.js",
     "test": "npm run lint && npm run test:only",
     "test:only": "nyc ava",
-    "test:dev": "ava --watch"
+    "test:dev": "ava --watch",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "dependencies": {},
   "devDependencies": {
     "ava": "^0.21.0",
+    "codecov": "^2.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-plugin-import": "^2.6.1",
