@@ -4,8 +4,7 @@
   "description": "Thunk creator for redux",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint *.js src/**/*.js",
-    "start": "node ."
+    "lint": "eslint *.js src/**/*.js"
   },
   "repository": {
     "type": "git",
