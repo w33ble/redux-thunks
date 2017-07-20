@@ -1,0 +1,29 @@
+{
+  "name": "redux-thunks",
+  "version": "0.0.0",
+  "description": "Thunk creator for redux",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint *.js src/**/*.js",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w33ble/redux-thunks.git"
+  },
+  "keywords": [],
+  "author": "Joe Fleming (https://github.com/w33ble)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w33ble/redux-thunks/issues"
+  },
+  "homepage": "https://github.com/w33ble/redux-thunks",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0"
+  }
+}
