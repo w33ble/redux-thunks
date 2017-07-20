@@ -4,7 +4,9 @@
   "description": "Thunk creator for redux",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint *.js src/**/*.js"
+    "lint": "eslint *.js src/**/*.js",
+    "test": "ava",
+    "test:dev": "ava --watch"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/w33ble/redux-thunks",
   "dependencies": {},
   "devDependencies": {
+    "ava": "^0.21.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-plugin-import": "^2.6.1",
