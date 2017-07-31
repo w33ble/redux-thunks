@@ -1,5 +1,1 @@
-const createThunk = require('./create_thunk');
-
-module.exports = {
-  createThunk,
-};
+export { createThunk } from './create_thunk';
