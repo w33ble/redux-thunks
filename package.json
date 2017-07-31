@@ -1,6 +1,6 @@
 {
   "name": "redux-thunks",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Thunk creator for redux",
   "main": "src/index.js",
   "scripts": {
