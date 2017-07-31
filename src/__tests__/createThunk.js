@@ -1,5 +1,5 @@
 import test from 'ava';
-import { createThunk } from '../create_thunk';
+import { createThunk } from '../../';
 
 let thunkObj;
 const store = {};
