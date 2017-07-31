@@ -4,6 +4,7 @@ node_modules
 yarn.lock
 coverage
 .nyc_output
-__tests__/
+.travis.yml
+__tests__
 *.test.js
 *.test.jsx
