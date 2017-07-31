@@ -8,8 +8,8 @@
     "lint": "eslint *.js src/**/*.js",
     "build": "rimraf cjs && babel --out-dir cjs --ignore __tests__ src",
     "prepublishOnly": "npm run build",
-    "test": "npm run build && npm run lint && npm run test:only",
-    "test:only": "nyc ava",
+    "test": "npm run build && npm run lint && nyc ava",
+    "test:only": "npm run build && ava",
     "test:dev": "ava --watch",
     "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
