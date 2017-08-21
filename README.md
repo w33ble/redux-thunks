@@ -29,7 +29,7 @@ Best used along side `redux-actions`.
 ### Action definition
 
 ```js
-import { createAction } from 'redux-actions';
+import { createAction, handleAction } from 'redux-actions';
 import { createThunk } from 'redux-thunks';
 
 export const setAmount = createAction('SET_AMOUNT');
@@ -37,23 +37,53 @@ export const setAmount = createAction('SET_AMOUNT');
 export const incrementAsync = createThunk('INCREMENT_ASYNC', ({ dispatch, getState }, amount) => {
   doAsyncMath(getState(), amount).then(val => dispatch(setAmount(val)));
 });
+
+// the reducer is attached to the action that is actually dispatched
+export default handleAction(setAmount, (state, payload) => payload, 0);
+```
+
+The context also receives the type name that you gave the thunk, which is useful to using `createAction` inside of the handler function, so that the action type only needs to be defined once, like so:
+
+```js
+import { createAction, handleAction } from 'redux-actions';
+import { createThunk } from 'redux-thunks';
+
+export const resetAmountAsync = createThunk('RESET_AMOUNT', ({ dispatch, type }) => {
+  // reset action. type is the value provided as the action type name, 'RESET_AMOUNT'
+  const action = createAction(type);
+
+  // read value from some async source and dispatch the reset action
+  fetchAsyncValue().then(val => dispatch(action(val)));
+});
+
+// the reducer can use the exported thunk action directly
+export default handleAction(resetAmountAsync, (state, payload) => payload, 0);
 ```
 
 ### Use in component/container
 
 ```js
 dispatch(incrementAsync, 10); // adds 10
+dispatch(resetAmountAsync); // resets the value
 ```
 
 ## API
 
 ### createThunk
 
-#### `createThunk('name', { dispatch, [getStore] }, [...args])`
+#### `createThunk('type', ({ dispatch, getStore, type }, [...args]))`
 
 The syntax is very similar to that of `createAction`, and it smooths over the differences by similarly exposing a `toString` method on the thunk creator. 
 
-`createThunk` takes two arguments, a name, and a function to execute when the action is dispatched. The first argument of the function will be an object with `dispatch` and `getState`, as provided by `redux-thunk`. Any additional arguments will be anything specified at the dispatch call site. It's expected that at least one other action will be dispatched from the handler function.
+`createThunk` takes two arguments, a type name, and a function to execute when the action is dispatched. The first argument of the function will be a context object, with the following properties:
+
+name | description
+---- | -----------
+`dispatch` | Provided directly from `redux-thunk`, used to dispatch other actions
+`getState` | Provided directly from `redux-thunk`, used to reach the current state
+`type` | The type name of the action that was passed in as the first argument
+
+ Any additional arguments will be anything specified at the dispatch call site. It's expected that at least one other action will be dispatched from the handler function.
 
 #### License
 
