@@ -1,8 +1,10 @@
-export function createThunk(name, fn) {
-  const actionCreator = (...args) => (dispatch, getState) => fn({ dispatch, getState }, ...args);
+export function createThunk(type, fn) {
+  const actionCreator = (...args) => (dispatch, getState) => (
+    fn({ dispatch, getState, type }, ...args)
+  );
 
   // mimic redux-actions' .toString() functionality
-  actionCreator.toString = () => name.toString();
+  actionCreator.toString = () => type.toString();
 
   return actionCreator;
 }
