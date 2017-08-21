@@ -49,6 +49,19 @@ test('handler function gets dispatch and getState', (t) => {
   store.dispatch(action);
 });
 
+test('handler function gets action type', (t) => {
+  t.plan(1);
+
+  const actionType = 'TYPE_NAME';
+
+  const handler = ({ type }) => {
+    t.is(type, actionType);
+  };
+
+  const action = createThunk(actionType, handler);
+  store.dispatch(action);
+});
+
 test('handler function gets dispatcher arguments', (t) => {
   t.plan(4);
 
