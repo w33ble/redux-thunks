@@ -71,7 +71,7 @@ dispatch(resetAmountAsync); // resets the value
 
 ### createThunk
 
-#### `createThunk('type', ({ dispatch, getStore, type }, [...args]))`
+#### `createThunk('type', ({ dispatch, getState, type }, [...args]))`
 
 The syntax is very similar to that of `createAction`, and it smooths over the differences by similarly exposing a `toString` method on the thunk creator. 
 
