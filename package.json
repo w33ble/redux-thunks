@@ -30,7 +30,11 @@
         "env",
         {
           "targets": {
-            "node": 6
+            "node": 6,
+            "browsers": [
+              "last 2 versions",
+              "ie >= 11"
+            ]
           }
         }
       ]
