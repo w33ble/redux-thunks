@@ -8,23 +8,37 @@
 
 Simple thunk creator for redux.
 
-This is meant to smooth over the use of [redux-thunk](https://github.com/gaearon/redux-thunk) mixed with the use of [redux-actions](https://github.com/acdlite/redux-actions). 
+This is meant to smooth over the use of [redux-thunk](https://github.com/gaearon/redux-thunk) and [redux-actions](https://github.com/acdlite/redux-actions). 
 
 ## Installation
 
 ```
-$ yarn add redux-thunks
+$ yarn add redux-thunks redux-thunk
 ```
 
 or
 
 ```
-$ npm install --save redux-thunks
+$ npm install --save redux-thunks redux-thunk
 ```
 
 ## Usage
 
-Best used along side `redux-actions`.
+This module is simply syntactic sugar for using `redux-thunk` with `redux-actions`. As such, it requires that you use the [redux-thunk](https://www.npmjs.com/package/redux-thunk) middleware.
+
+### Add redux-thunk middleware
+
+```js
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/index';
+
+// Note: this API requires redux@>=3.1.0
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+);
+```
 
 ### Action definition
 

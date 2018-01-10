@@ -41,6 +41,9 @@
     ]
   },
   "dependencies": {},
+  "peerDependencies": {
+    "redux-thunk": "^2.2.0"
+  },
   "devDependencies": {
     "ava": "^0.21.0",
     "babel-cli": "^6.24.1",
