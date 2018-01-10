@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/w33ble/redux-thunks.svg?branch=master)](https://travis-ci.org/w33ble/redux-thunks)
 [![Coverage](https://img.shields.io/codecov/c/github/w33ble/redux-thunks.svg)](https://codecov.io/gh/w33ble/redux-thunks)
 [![npm](https://img.shields.io/npm/v/redux-thunks.svg)](https://www.npmjs.com/package/redux-thunks)
-![Project Status](https://img.shields.io/badge/status-experimental-orange.svg)
+![Project Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
 
 Simple thunk creator for redux.
 
