@@ -5,7 +5,7 @@
   "main": "cjs/index.js",
   "module": "src/index.js",
   "scripts": {
-    "lint": "eslint *.js src/**/*.js",
+    "lint": "eslint \"*.js\" \"src/**/*.js\"",
     "build": "rimraf cjs && babel --out-dir cjs --ignore __tests__ src",
     "prepublishOnly": "npm run build",
     "test": "npm run build && npm run lint && nyc ava",
